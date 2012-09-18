@@ -69,7 +69,7 @@ void generate_switch_para(void)
 		case MODEL_RTN12HP:
 		case MODEL_RTN53:
 		{				      /* WAN L1 L2 L3 L4 CPU */
-			const int ports[SWPORT_COUNT] = { 4, 3, 2, 1, 0, 5 };
+			const int ports[SWPORT_COUNT] = { 0, 1, 2, 3, 4, 5 };
 			/* TODO: switch_wantag? */
 
 			//if (!is_routing_enabled())
