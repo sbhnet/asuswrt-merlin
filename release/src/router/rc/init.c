@@ -1360,32 +1360,33 @@ int init_nvram(void)
 
 	case MODEL_RTN53:
 		nvram_set("lan_ifname", "br0");
-		nvram_set("lan_ifnames", "vlan0 eth1 eth2");
+		nvram_set("lan_ifnames", "vlan0 eth1");
 		nvram_set("wan_ifnames", "eth0");
-		nvram_set("wl_ifnames", "eth1 eth2");
+		nvram_set("wl_ifnames", "eth1");
 		nvram_set("wl0_vifnames", "wl0.1 wl0.2 wl0.3");
-		nvram_set("wl1_vifnames", "wl1.1 wl1.2 wl1.3");
-		nvram_set_int("btn_rst_gpio", 3|GPIO_ACTIVE_LOW);
-		nvram_set_int("btn_wps_gpio", 7|GPIO_ACTIVE_LOW);
-		nvram_set_int("btn_radio_gpio", 0xff);
-		nvram_set_int("led_pwr_gpio", 17|GPIO_ACTIVE_LOW);
-		nvram_set_int("led_wps_gpio", 17|GPIO_ACTIVE_LOW);
-		nvram_set_int("led_usb_gpio", 0xff);
-		nvram_set_int("led_lan_gpio", 5|GPIO_ACTIVE_LOW);
-		nvram_set_int("led_wan_gpio", 4|GPIO_ACTIVE_LOW);
-		nvram_set_int("led_2g_gpio", 0|GPIO_ACTIVE_LOW);
-		nvram_set_int("led_5g_gpio", 1|GPIO_ACTIVE_LOW);
-		nvram_set("sb/1/ledbh0", "2");
+		nvram_set_int("btn_rst_gpio", 30|GPIO_ACTIVE_LOW);
+		nvram_set_int("btn_wps_gpio", 29|GPIO_ACTIVE_LOW);
+		nvram_set_int("btn_radio_gpio", 28|GPIO_ACTIVE_LOW);
+		nvram_set_int("led_pwr_gpio", 0xff);
+		nvram_set_int("led_wps_gpio", 6|GPIO_ACTIVE_LOW);
+		nvram_set_int("led_usb_gpio", 9|GPIO_ACTIVE_LOW);
+		nvram_set_int("led_lan_gpio", 0xff);
+		nvram_set_int("led_wan_gpio", 0xff);
+		nvram_set_int("led_2g_gpio", 0xff);
+		nvram_set_int("led_5g_gpio", 0xff);
+		nvram_set("sb/1/ledbh5", "7");
+		nvram_set("ehci_ports", "1-1");
+		nvram_set("ohci_ports", "2-1");
 		/* change lan interface to vlan0 */
 		nvram_set("vlan0hwname", "et0");
-		nvram_set("landevs", "vlan0 wl0 wl1");
+		nvram_set("landevs", "vlan0 wl0");
 		nvram_unset("vlan2ports");
 		nvram_unset("vlan2hwname");
 		/* end */
 		if(!nvram_get("ct_max")) 
 			nvram_set("ct_max", "8192");
 
-		add_rc_support("2.4G 5G update mssid no5gmssid");
+		add_rc_support("2.4G update mssid no5gmssid usbX1");
 		break;
 
 	case MODEL_RTN66U:
